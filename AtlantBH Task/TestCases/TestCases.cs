@@ -21,7 +21,7 @@ namespace AtlantBH_Task.TestCases
                .Submit();
 
             ContactListPage
-               .ValidateLoggedIn();
+               .ValidateContactListPageDisplayed();
         }
 
         [Test]
@@ -33,11 +33,11 @@ namespace AtlantBH_Task.TestCases
                 .Submit();
 
             ContactListPage
-              .ValidateLoggedIn();
+              .ValidateContactListPageDisplayed();
         }
 
         [Test]
-        public void ValidateAddingNewContact()
+        public void ValidateAddNewContact()
         {
             LogInPage
                 .PopulateEmail()
@@ -59,11 +59,8 @@ namespace AtlantBH_Task.TestCases
                 .PopulateStateOrProvince()
                 .PopulatePostalCode()
                 .PopulateCountry()
-                .Submit();
-
-            ContactListPage
-              .ValidateLoggedIn();
-
+                .Submit()
+                .ValidateNoErrorsDisplayed();
         }
     }
 }

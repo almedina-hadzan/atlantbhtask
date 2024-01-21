@@ -24,6 +24,9 @@ namespace AtlantBH_Task.Configurations
         [JsonProperty("contactFirstName")]
         public string ContactFirstName { get; set; }
 
+        [JsonProperty("addContactButtonText")]
+        public string AddContactButtonText { get; set; }
+
         public static Config Load()
         {
             string json = File.ReadAllText("Configurations/Config.json");

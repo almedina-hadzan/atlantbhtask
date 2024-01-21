@@ -1,6 +1,8 @@
 ﻿using AtlantBH_Task.Configurations;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
+using SeleniumExtras.WaitHelpers;
 
 namespace AtlantBH_Task.Pages
 {
@@ -115,6 +117,15 @@ namespace AtlantBH_Task.Pages
         {
             SubmitButton.Click();
             return AddNewContactPage;
+        }
+
+        internal ContactList ValidateNoErrorsDisplayed()
+        {
+            var errorElement = GetDriver().FindElement(By.Id("error"));
+
+            Assert.AreEqual(string.Empty, errorElement.Text);
+
+            return ContactListPage;
         }
 
     }

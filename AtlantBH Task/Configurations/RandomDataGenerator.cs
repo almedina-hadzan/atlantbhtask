@@ -24,12 +24,7 @@ namespace AtlantBH_Task.Configurations
 
         public string GenerateDateOfBirth()
         {
-            string dateOfBirth = faker.Person.DateOfBirth.ToString("yyyy-MM-dd");
-
-            /*string dateOfBirth = faker.Person.DateOfBirth.Year.ToString()
-                + "-" + faker.Person.DateOfBirth.Month.ToString()
-                + "-" + faker.Person.DateOfBirth.Day.ToString();*/
-            return dateOfBirth;
+            return faker.Person.DateOfBirth.ToString("yyyy-MM-dd");
         }
 
         public string GenerateEmail()
@@ -39,7 +34,11 @@ namespace AtlantBH_Task.Configurations
 
         public string GeneratePhone()
         {
-            return faker.Person.Phone;
+            Random random = new Random();
+            int min = (int)Math.Pow(10, 6);  
+            int max = (int)Math.Pow(10, 9);  
+
+            return random.Next(min, max).ToString();
         }
 
         public string GenerateStreetAddress1()

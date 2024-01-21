@@ -12,10 +12,14 @@ namespace AtlantBH_Task.Pages
         [FindsBy(How = How.Id, Using = "add-contact")]
         IWebElement AddContactButton { get; set; }
 
-        public ContactList ValidateLoggedIn()
+        public ContactList ValidateContactListPageDisplayed()
         {
-            new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(30))
+           new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(30))
                 .Until(ExpectedConditions.ElementIsVisible(By.Id("add-contact")));
+
+            var asd = GetDriver().FindElement(By.Id("add-contact"));
+
+            Assert.AreEqual(Config.Load().AddContactButtonText, asd.Text);
             return ContactListPage;
         }
 

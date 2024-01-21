@@ -2,6 +2,8 @@
 using AtlantBH_Task.Configurations;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace AtlantBH_Task.TestCases
 {
@@ -36,12 +38,17 @@ namespace AtlantBH_Task.TestCases
         }
 
         // Selenium extensions
-        public bool IsElementPresent(By by)
+        public bool IsElementVisible(By by)
         {
             try
             {
-                GetDriver().FindElement(by);
-                return true;
+                new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(2))
+                .Until(ExpectedConditions.InvisibilityOfElementLocated(by));
+                var element = GetDriver().FindElement(by);
+                if (element.Displayed)
+                    return true;
+                else
+                    return false;
             }
             catch (NoSuchElementException)
             {
