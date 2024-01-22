@@ -60,7 +60,7 @@ namespace AtlantBH_Task.TestCases
                 .PopulatePostalCode()
                 .PopulateCountry()
                 .Submit()
-                .ValidateNoErrorsDisplayed();
+                .ValidateContactInformation();
         }
     }
 }

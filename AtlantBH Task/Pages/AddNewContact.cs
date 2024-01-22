@@ -123,7 +123,7 @@ namespace AtlantBH_Task.Pages
             return AddNewContactPage;
         }
 
-        internal ContactList ValidateNoErrorsDisplayed()
+        internal ContactList ValidateContactInformation()
         {
             var expectedFullName = FirstName + " " + LastName;
 
