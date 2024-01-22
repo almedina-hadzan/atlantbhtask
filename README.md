@@ -1,3 +1,5 @@
+Test plan with manual test cases is inside 'AtlantBH Task.pdf' file.
+
 Test automation framework was written using the following:
 1. Visual studio
 2. C#
@@ -13,3 +15,4 @@ Instructions for running the test cases:
 2. Automated API tests:
    - Import the 'Contact List App.postman_collection.json' into Postman
    - Run the collection 
+
