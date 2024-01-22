@@ -1,11 +1,5 @@
-﻿<Properties StartupConfiguration="{B1218041-E8A4-4924-B41B-1D12DB67F6C3}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.AtlantBH_220Task PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+﻿<Properties StartupConfiguration="{B1218041-E8A4-4924-B41B-1D12DB67F6C3}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
   <MonoDevelop.Ide.Workbench ActiveDocument="AtlantBH Task/Configurations/RandomDataGenerator.cs">
     <Files>
       <File FileName="AtlantBH Task/TestCases/BaseTestClass.cs" Line="38" Column="1" />
@@ -52,4 +46,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AtlantBH_220Task PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>
