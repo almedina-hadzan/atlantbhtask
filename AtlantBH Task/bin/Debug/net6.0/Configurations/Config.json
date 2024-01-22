@@ -1,9 +1,0 @@
-﻿{
-  "baseUrl": "https://thinking-tester-contact-list.herokuapp.com/",
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "jane@dss.ckd",
-  "password": "12345678",
-  "addContactButtonText": "Add a New Contact"
-}
-
