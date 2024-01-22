@@ -14,12 +14,13 @@ namespace AtlantBH_Task.Pages
 
         public ContactList ValidateContactListPageDisplayed()
         {
-           new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(30))
+            var expectedAddContactButtonText = Config.Load().AddContactButtonText;
+            new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(30))
                 .Until(ExpectedConditions.ElementIsVisible(By.Id("add-contact")));
 
-            var asd = GetDriver().FindElement(By.Id("add-contact"));
+            var actualAddContactButtonText = GetDriver().FindElement(By.Id("add-contact")).Text;
 
-            Assert.AreEqual(Config.Load().AddContactButtonText, asd.Text);
+            Assert.AreEqual(expectedAddContactButtonText, actualAddContactButtonText);
             return ContactListPage;
         }
 
@@ -33,4 +34,3 @@ namespace AtlantBH_Task.Pages
         }
     }
 }
-

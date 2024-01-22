@@ -45,16 +45,20 @@ namespace AtlantBH_Task.Pages
         [FindsBy(How = How.Id, Using = "submit")]
         IWebElement SubmitButton { get; set; }
 
+        private static string FirstName { get; set; }
+        private static string LastName { get; set; }
+
         internal AddNewContact PopulateFirstName()
         {
-            string contactFirstName = new RandomDataGenerator().GenerateFirstName();
-            FirstNameTextBox.SendKeys(contactFirstName);
+            FirstName = new RandomDataGenerator().GenerateFirstName();
+            FirstNameTextBox.SendKeys(FirstName);
             return AddNewContactPage;
         }
 
         internal AddNewContact PopulateLastName()
         {
-            LastNameTextBox.SendKeys(new RandomDataGenerator().GenerateLastName());
+            LastName = new RandomDataGenerator().GenerateLastName();
+            LastNameTextBox.SendKeys(LastName);
             return AddNewContactPage;
         }
 
@@ -77,7 +81,7 @@ namespace AtlantBH_Task.Pages
         }
 
         internal AddNewContact PopulateStreetAddress1()
-        { 
+        {
 
             StreetAddress1TextBox.SendKeys(new RandomDataGenerator().GenerateStreetAddress1());
             return AddNewContactPage;
@@ -121,9 +125,16 @@ namespace AtlantBH_Task.Pages
 
         internal ContactList ValidateNoErrorsDisplayed()
         {
-            var errorElement = GetDriver().FindElement(By.Id("error"));
+            var expectedFullName = FirstName + " " + LastName;
 
-            Assert.AreEqual(string.Empty, errorElement.Text);
+            var actualFullNameLocator = $".//tr[@class='contactTableBodyRow']//td[contains(text(),'{FirstName}')]";
+
+            new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(30))
+                .Until(ExpectedConditions.ElementIsVisible(By.XPath(actualFullNameLocator)));
+
+            var actualFullName = GetDriver().FindElements(By.XPath(actualFullNameLocator)).First().Text;
+
+            Assert.AreEqual(expectedFullName, actualFullName);
 
             return ContactListPage;
         }

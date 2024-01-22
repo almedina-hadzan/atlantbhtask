@@ -36,25 +36,6 @@ namespace AtlantBH_Task.TestCases
         {
             driver.Quit();
         }
-
-        // Selenium extensions
-        public bool IsElementVisible(By by)
-        {
-            try
-            {
-                new WebDriverWait(GetDriver(), TimeSpan.FromSeconds(2))
-                .Until(ExpectedConditions.InvisibilityOfElementLocated(by));
-                var element = GetDriver().FindElement(by);
-                if (element.Displayed)
-                    return true;
-                else
-                    return false;
-            }
-            catch (NoSuchElementException)
-            {
-                return false;
-            }
-        }
     }
 }
 
